@@ -23,7 +23,7 @@ function drawPyramid(height) {
         // build up a string for this row
         var rowStr = "";
         for (var i = 0; i < numSpaces; i++) {
-            rowStr += "."; // QUIZ: what happens if we use a space (" ") instead of a period?
+            rowStr += "\xa0"; // QUIZ: what happens if we use a space (" ") instead of a period?
         }
         for (var i = 0; i < numBricks; i++) {
             rowStr += "#";
@@ -35,6 +35,11 @@ function drawPyramid(height) {
         // TODO 1
         // create an element whose inner text is rowStr,
         // and insert it as a child of the container <div id="pyramid">
+        var pyramidDiv  = document.getElementById("pyramid");
+        var pyramidPara = document.createElement("p")
+        var pyramidRow = document.createTextNode(rowStr);
+
+        pyramidDiv.appendChild(pyramidPara).appendChild(pyramidRow);
 
     }
 }
