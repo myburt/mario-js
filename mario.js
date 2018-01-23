@@ -12,14 +12,13 @@ function determineHeightAndThenDrawPyramid() {
 
     // TODO 3
     // figure out the height the user typed (replace the "5" below)
-    heightStr = "5";
-
+    heightStr = document.getElementById("height");
     // here we convert the string to an int
-    height = parseInt(heightStr);
+    height = parseInt(heightStr.value);
 
     // TODO 2
     // draw the pyramid with the given height
-
+    drawPyramid(height);
 }
 
 
@@ -35,12 +34,14 @@ function determineHeightAndThenDrawPyramid() {
  */
  function drawPyramid(height) {
 
-     // TODO 4
+     
      // before drawing, clear the old content
-
+        pyramidDiv = document.getElementById("pyramid");
+        pyramidDiv.innerHTML = '';
 
      // for each row....
-     for (var row = 0; row < height; row++) {
+     for (var row = 0; row < height; row++) 
+     {
 
          // figure out number of bricks and spaces
          var numBricks = row + 2;
@@ -48,10 +49,12 @@ function determineHeightAndThenDrawPyramid() {
 
          // build up a string for this row
          var rowStr = "";
-         for (var i = 0; i < numSpaces; i++) {
-             rowStr += ".";
+         for (var i = 0; i < numSpaces; i++)
+         {
+             rowStr += "\xa0";
          }
-         for (var i = 0; i < numBricks; i++) {
+         for (var i = 0; i < numBricks; i++) 
+         {
              rowStr += "#";
          }
 
@@ -62,7 +65,8 @@ function determineHeightAndThenDrawPyramid() {
         rowElem = document.createElement("p");
         rowElem.appendChild(textElem);
 
+        console.log(rowElem);
         // insert the paragraph as a child of the container <div>
-        document.getElementById("pyramid").appendChild(rowElem);
+        pyramidDiv.appendChild(rowElem);
     }
 }
